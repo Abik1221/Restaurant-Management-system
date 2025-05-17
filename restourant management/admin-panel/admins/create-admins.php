@@ -16,10 +16,8 @@
       $adminname = $_POST['adminname'];
       $email = $_POST['email'];
       $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
       $insert = $conn->prepare("INSERT INTO admins (adminname, email, mypassword) 
       VALUES (:adminname, :email, :mypassword)");
-
       $insert->execute([
         ":adminname" => $adminname,
         ":email" => $email,
@@ -30,8 +28,6 @@
 
     }
   }
-
-
 ?> 
        <div class="row">
         <div class="col">
@@ -51,17 +47,8 @@
                 <div class="form-outline mb-4">
                   <input type="password" name="password" id="form2Example1" class="form-control" placeholder="password" />
                 </div>
-
-               
-            
-                
-              
-
-
                 <!-- Submit button -->
-                <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">create</button>
-
-          
+                <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">create</button> 
               </form>
 
             </div>
@@ -70,7 +57,9 @@
       </div>
   </div>
 <script type="text/javascript">
-
+  $(document).ready(function() {
+    $('#example').DataTable();
+} );
 </script>
 </body>
 </html>
